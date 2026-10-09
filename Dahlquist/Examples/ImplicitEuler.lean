@@ -48,6 +48,7 @@ theorem implicitEuler_order_one : implicitEuler.HasExactOrder 1 := by
   constructor
   · apply implicitEuler_order_at_least_one
   · simp [Coefficients.momentResidual, implicitEuler]
+    grind
 
 /-- Implicit Euler is consistent. -/
 theorem implicitEuler_consistent : implicitEuler.Consistent := by

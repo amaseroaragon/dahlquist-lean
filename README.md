@@ -2,7 +2,23 @@
 
 Lean 4 / Mathlib formalization of linear multistep methods, stability theory and Dahlquist barriers.
 
-## Current progress
+## Repository Structure
+
+The main directory is `Dahlquist/`, which contains the following files:
+
+```text
+Dahlquist/
+|--- Basic.lean                 # LMM coeffs and basic properties
+|--- Characteristic.lean        # Characteristic polynomials
+|--- OrderConditions.lean       # Order conditions and consistency
+|--- Examples/
+     |--- ExplicitEuler.lean    # Explicit Euler method and proofs
+     |--- ImplicitEuler.lean    # Implicit Euler method and proofs
+
+```
+
+
+## Current Progress
 
 Already done:
 

@@ -24,20 +24,25 @@ namespace Coefficients
 
 variable {k : ℕ} (M : Coefficients k)
 
-/-- sustituir por teorema. -/
+/-- Moment residuals for a linear multistep method.
+Pending: connect and deduce them from Taylor expansions. -/
 noncomputable def momentResidual : ℕ → ℝ
   | 0 => ∑ j : Fin (k + 1), M.alpha j
   | q + 1 => ((∑ j : Fin (k + 1), M.alpha j * (j : ℝ) ^ (q + 1)) -
     ((q + 1 : ℕ) : ℝ) * (∑ j : Fin (k + 1), M.beta j * (j : ℝ) ^ (q)))
     / (Nat.factorial (q + 1) : ℝ)
 
-
+/-- A linear multistep method has order at least p if all moment
+residuals from degree zero to p are equal to zero. -/
 def HasOrderAtLeast (p : ℕ) : Prop :=
   ∀ q : ℕ, q ≤ p → M.momentResidual q = 0
 
+/-- A linear multistep method has order at least p if all moment
+residuals from degree zero to p are equal to zero, but the p+1 is not. -/
 def HasExactOrder (p : ℕ) : Prop :=
-  M.HasOrderAtLeast p ∧ M.momentResidual p + 1 ≠ 0
+  M.HasOrderAtLeast p ∧ M.momentResidual (p + 1) ≠ 0
 
+/-- A linear multisept method is consistent if it has order at least one. -/
 def Consistent : Prop :=
   M.HasOrderAtLeast 1
 
