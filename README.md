@@ -11,6 +11,7 @@ Dahlquist/
 |--- Basic.lean                 # LMM coeffs and basic properties
 |--- Characteristic.lean        # Characteristic polynomials
 |--- OrderConditions.lean       # Order conditions and consistency
+|--- Defect.lean                # Defect operator and Taylor expansion
 |--- Examples/
      |--- ExplicitEuler.lean    # Explicit Euler method and proofs
      |--- ImplicitEuler.lean    # Implicit Euler method and proofs
@@ -27,10 +28,11 @@ Already done:
 - Definitions of the characteristic polynomials.
 - Order conditions and consistency.
 - Explicit and implicit Euler methods.
+- Definition of the local truncation defect operator and Taylor polynomials.
 
 Next steps:
 
-- Derive order conditions from the local truncation error operator, instead of being introduced as a definition.
+- Complete the Taylor expansion of the defect operator and derive the moment residuals.
 - Characterize consistency through the chacateristic polynomials.
 
 
