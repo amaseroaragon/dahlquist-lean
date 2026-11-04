@@ -50,8 +50,19 @@ private theorem defect_add_polynomials (P Q : Polynomial ℝ) (h : ℝ) :
   simp only [Polynomial.derivative_add, Polynomial.eval_add, mul_add, Finset.sum_add_distrib]
   grind
 
+/-- Expansion of the defect operator applied to a monomial. -/
+private theorem defect_monomial_succ (q : ℕ) (c h : ℝ) :
+    M.defect (fun x => (Polynomial.monomial (q + 1) c).eval x) 0 h =
+    c * h ^ (q + 1) * ((∑ j : Fin (k + 1), M.alpha j * (j : ℝ) ^ (q + 1)) - (q + 1 : ℝ) *
+    (∑ j : Fin (k + 1), M.beta j * (j : ℝ) ^ q)) := by
+  unfold defect
+  simp only [Polynomial.deriv, Polynomial.derivative_monomial_succ]
+  simp only [Polynomial.eval_monomial, zero_add, mul_pow]
+  simp only [mul_sub, Finset.mul_sum]
+  grind
+
 /-- Expansion of the defect operator applied to a Taylor polynomial. -/
-theorem defect_taylorPolinomial (a: ℕ → ℝ) (p : ℕ) (h : ℝ) :
+theorem defect_taylorPolinomial (a : ℕ → ℝ) (p : ℕ) (h : ℝ) :
     M.defect (fun x => (taylorPolynomial a p).eval x) 0 h =
     a 0 * (∑ j : Fin (k + 1), M.alpha j)+
     ∑ q ∈ Finset.range p, (a (q + 1) * h ^ (q + 1) / (Nat.factorial (q + 1) : ℝ)) *
@@ -66,9 +77,8 @@ theorem defect_taylorPolinomial (a: ℕ → ℝ) (p : ℕ) (h : ℝ) :
     rw [taylorPolynomial_succ]
     rw [defect_add_polynomials]
     rw[ih]
-
-    sorry
-
+    rw[defect_monomial_succ]
+    grind
 
 
 end Coefficients

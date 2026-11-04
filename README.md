@@ -29,10 +29,11 @@ Already done:
 - Order conditions and consistency.
 - Explicit and implicit Euler methods.
 - Definition of the local truncation defect operator and Taylor polynomials.
+- Taylor expansion of the defect operator. 
 
 Next steps:
 
-- Complete the Taylor expansion of the defect operator and derive the moment residuals.
+- Derivation of moment residuals.
 - Characterize consistency through the chacateristic polynomials.
 
 
