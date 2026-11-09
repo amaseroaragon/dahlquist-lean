@@ -30,10 +30,10 @@ Already done:
 - Explicit and implicit Euler methods.
 - Definition of the local truncation defect operator and Taylor polynomials.
 - Taylor expansion of the defect operator. 
+- Derivation of moment residuals.
 
 Next steps:
 
-- Derivation of moment residuals.
 - Characterize consistency through the chacateristic polynomials.
 
 

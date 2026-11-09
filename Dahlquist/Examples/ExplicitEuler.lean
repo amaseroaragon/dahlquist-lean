@@ -38,15 +38,17 @@ theorem explicitEuler_explicit : explicitEuler.Explicit := by
 
 /-- Explicit Euler has order at least one -/
 theorem explicitEuler_order_at_least_one : explicitEuler.HasOrderAtLeast 1 := by
-  intro n p
-  interval_cases n <;> simp [Coefficients.momentResidual, explicitEuler]
+  intro q hq
+  interval_cases q
+  · simp [Coefficients.momentResidual_zero, explicitEuler]
+  · simp [Coefficients.momentResidual_succ, explicitEuler]
 
 /-- Explicit Euler has order one. -/
 theorem explicitEuler_order_one : explicitEuler.HasExactOrder 1 := by
   constructor
-  · apply explicitEuler_order_at_least_one
-  · simp [Coefficients.momentResidual, explicitEuler]
-
+  · exact explicitEuler_order_at_least_one
+  · simp [Coefficients.momentResidual_succ, explicitEuler]
+    
 /-- Explicit Euler is consistent. -/
 theorem explicitEuler_consistent : explicitEuler.Consistent := by
   apply explicitEuler_order_at_least_one
