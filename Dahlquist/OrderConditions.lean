@@ -70,6 +70,39 @@ def HasExactOrder (p : ℕ) : Prop :=
 def Consistent : Prop :=
   M.HasOrderAtLeast 1
 
+/-- Consistency characterized by the characteristic polynomials. -/
+theorem consistent_iff_characteristic :
+  M.Consistent ↔ Polynomial.eval 1 M.rho = 0 ∧
+  Polynomial.eval 1 (Polynomial.derivative M.rho) = Polynomial.eval 1 M.sigma := by
+  constructor
+  · unfold Consistent HasOrderAtLeast
+    intro x
+    constructor
+    · specialize x 0 zero_le_one
+      rw [M.momentResidual_zero] at x
+      unfold rho
+      simp only [Polynomial.eval_finsetSum, Polynomial.eval_monomial, one_pow, mul_one]
+      exact x
+    · specialize x 1
+      rw [M.momentResidual_succ 0] at x
+      simp at x
+      unfold rho sigma
+      simp [Polynomial.derivative_monomial, Polynomial.eval_finsetSum]
+      grind
+  · unfold Consistent HasOrderAtLeast
+    rintro ⟨h1, h2⟩
+    intro q hq
+    interval_cases q
+    · rw [momentResidual_zero]
+      unfold rho at h1
+      simp only [Polynomial.eval_finsetSum, Polynomial.eval_monomial, one_pow, mul_one] at h1
+      exact h1
+    · rw [momentResidual_succ]
+      simp
+      unfold rho sigma at h2
+      simp [Polynomial.derivative_monomial, Polynomial.eval_finsetSum] at h2
+      grind
+
 
 end Coefficients
 

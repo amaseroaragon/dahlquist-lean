@@ -31,10 +31,18 @@ Already done:
 - Definition of the local truncation defect operator and Taylor polynomials.
 - Taylor expansion of the defect operator. 
 - Derivation of moment residuals.
+- Characterization of consistency through the characteristic polynomials.
 
 Next steps:
 
-- Characterize consistency through the chacateristic polynomials.
+- Define the root condition for zero-stability.
+- Prove zero-stability of explicit and implicit Euler methods.
+
+Future ideas:
+- Introduce reusable lemmas for characteristic polynomials:
+     - Evaluation of rho and sigma at one (rho_eval_one and sigma_eval_one).
+     - Evaluation of the derivative of rho at one (rho_derivative_eval_one).
+- Refactor existing proofs to reuse these lemmas.
 
 
 ## License
