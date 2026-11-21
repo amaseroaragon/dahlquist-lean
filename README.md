@@ -12,6 +12,7 @@ Dahlquist/
 |--- Characteristic.lean        # Characteristic polynomials
 |--- OrderConditions.lean       # Order conditions and consistency
 |--- Defect.lean                # Defect operator and Taylor expansion
+|--- ZeroStability.lean         # Root condition and zero stability
 |--- Examples/
      |--- ExplicitEuler.lean    # Explicit Euler method and proofs
      |--- ImplicitEuler.lean    # Implicit Euler method and proofs
