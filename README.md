@@ -32,11 +32,13 @@ Already done:
 - Taylor expansion of the defect operator. 
 - Derivation of moment residuals.
 - Characterization of consistency through the characteristic polynomials.
+- Definition of the root condition for zero-stability.
 
 Next steps:
 
-- Define the root condition for zero-stability.
-- Prove zero-stability of explicit and implicit Euler methods.
+- Relate simplicity of unit-modulus roots to root multiplicity.
+- Add new methods.
+- Formalize the Dahlquist equivalence theorem.
 
 Future ideas:
 - Introduce reusable lemmas for characteristic polynomials:

@@ -62,7 +62,7 @@ private theorem defect_monomial_succ (q : ℕ) (c h : ℝ) :
   grind
 
 /-- Expansion of the defect operator applied to a Taylor polynomial. -/
-theorem defect_taylorPolinomial (a : ℕ → ℝ) (p : ℕ) (h : ℝ) :
+theorem defect_taylorPolynomial (a : ℕ → ℝ) (p : ℕ) (h : ℝ) :
     M.defect (fun x => (taylorPolynomial a p).eval x) 0 h =
     a 0 * (∑ j : Fin (k + 1), M.alpha j)+
     ∑ q ∈ Finset.range p, (a (q + 1) * h ^ (q + 1) / (Nat.factorial (q + 1) : ℝ)) *

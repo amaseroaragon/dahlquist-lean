@@ -48,7 +48,7 @@ theorem defect_taylorPolynomial_residuals (a : ℕ → ℝ) (p : ℕ) (h : ℝ) 
   M.defect (fun x => (taylorPolynomial a p).eval x) 0 h =
   a 0 * M.momentResidual 0 + ∑ q ∈ Finset.range p, a (q + 1) *
   M.momentResidual (q + 1) * h ^ (q + 1) := by
-  rw [M.defect_taylorPolinomial, M.momentResidual_zero]
+  rw [M.defect_taylorPolynomial, M.momentResidual_zero]
   congr 1
   apply Finset.sum_congr rfl
   intro q _
@@ -66,7 +66,7 @@ residuals from degree zero to p are equal to zero, but the p+1 is not. -/
 def HasExactOrder (p : ℕ) : Prop :=
   M.HasOrderAtLeast p ∧ M.momentResidual (p + 1) ≠ 0
 
-/-- A linear multisept method is consistent if it has order at least one. -/
+/-- A linear multistep method is consistent if it has order at least one. -/
 def Consistent : Prop :=
   M.HasOrderAtLeast 1
 

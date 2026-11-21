@@ -14,5 +14,11 @@ name = "mathlib"
 scope = "leanprover-community"
 rev = "v4.35.0-rc4"
 
+[[require]]
+name = "LeanBlackboard"
+git = "https://github.com/amaseroaragon/lean-blackboard"
+rev = "main"
+subDir = "lean"
+
 [[lean_lib]]
 name = "Dahlquist"
